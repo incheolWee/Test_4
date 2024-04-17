@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class pdfRead {
     public static void main(String[] args){
-        String file = "path/result/sample.pdf";
+        String file = "path/result/new.pdf";
         try{
             readpdf(file);
         }catch (IOException e){

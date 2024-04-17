@@ -25,6 +25,7 @@
     </properties>
 
     <dependencies>
+
         <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -161,7 +162,12 @@
             <artifactId>commons-io</artifactId>
             <version>2.6</version>
         </dependency>
-
+<!--        마우스 클릭으로 좌표값 가죠오기-->
+    <dependency>
+    <groupId>org.apache.pdfbox</groupId>
+    <artifactId>pdfbox</artifactId>
+    <version>2.0.24</version>
+</dependency>
     </dependencies>
 
 
