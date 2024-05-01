@@ -22,9 +22,10 @@ public class PdfViewer extends JFrame {
     private void initUI() throws IOException {
         PDDocument document = PDDocument.load(new File("path/result/new.pdf"));
         PDFRenderer renderer = new PDFRenderer(document);
-        BufferedImage image = renderer.renderImage(0);
+        BufferedImage image = renderer.renderImageWithDPI(0, 96); // Render with 96 DPI to match screen resolution
 
-        JLabel label = new JLabel(new ImageIcon(image));
+        ImageIcon imageIcon = new ImageIcon(image);
+        JLabel label = new JLabel(imageIcon);
         label.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -33,9 +34,14 @@ public class PdfViewer extends JFrame {
             }
         });
 
+        // Use a JScrollPane to handle larger images and add scroll capabilities
         JScrollPane scrollPane = new JScrollPane(label);
         add(scrollPane, BorderLayout.CENTER);
-        pack();
+
+        // Set the size of the JFrame to match A4 dimensions at 96 DPI
+        setSize(new Dimension(794, 1123));
+        setLocationRelativeTo(null); // Center the window on the screen
+
         document.close();
     }
 
